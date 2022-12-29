@@ -1,0 +1,138 @@
+---
+layout: post
+title: "Apex 最佳实践"
+subtitle: ""
+date: 2021-12-11 12:00:00
+author: "Peter Dong"
+header-img: "img/post-bg-apex-best-practices.png"
+catalog: true
+tags:
+  - Salesforce
+  - Apex
+  - Best Practices
+---
+
+> A good Salesforce architect knows how to use Apex. A great Salesforce architect knows when to not use Apex.
+
+当我们在Salesforce平台构建解决方案的时候, 首先考虑使用平台的内置功能, 比如Validation rules, Record-triggered flows等, 这些功能可以提供更好的性能, 而且通常更容易维护. 然而在有些情况下使用代码解决问题反而是比较好的, Apex倾向于提供更多的灵活性, 而且在大数据量的记录中表现得更好(需要遵循最佳实践). 所以一个好的Salesforce架构师会有意识地在每种情况下权衡代码与配置的优势, 从而找出最佳方案.
+
+### 1. Bulkify Your Code
+
+代码的批量化是使你的代码能够一次有效的处理多条记录的过程, 主要适用于Apex Trigger, 但是我个人认为在常规的Apex代码中进行DML操作时, 批量化代码也尤为重要, 这样你的代码就能正确处理不同情况下的所有记录, 以提高你的Org性能.
+
+下面的触发器假设只有一条记录引起了触发器的触发.当在同一个事务中插入多条记录时,这个触发器对完整的记录会不起作用:
+
+```java
+trigger MyTriggerNotBulk on Opportunity(before insert) {
+    Opportunity opp = Trigger.new[0];
+    opp.Description = 'New description';
+}
+```
+下面这个例子是MyTrigger的一个修改版本.是为处理触发器中的整批记录而设置的相同代码,这意味着所有记录将在一次触发器调用中被正确处理.
+
+```java
+trigger MyTriggerBulk on Opportunity(before insert) {
+    for(Opportunity opp : Trigger.new) {
+        opp.Description = 'New description';
+    }
+}
+```
+
+另外也可以通过使用Map来降低代码复杂度, 减少代码运行时间. 下面的一个例子是在处理过程中使用Map来更有效地访问记录的关联数据.
+
+```java
+Set<Id> accountIds = new Set<Id>();
+
+for (Opportunity opp :Trigger.new) {
+  accountIds.add(opp.AccountId); 
+}
+
+Map<Id, Account> accountById = new Map<Id, Account>(
+  [ SELECT Id,Name FROM Account WHERE Id IN :accountIds]
+);
+
+for (Opportunity opp :Trigger.new) {
+  opp.Account_Name__c = accountById.get(opp.AccountId).Name; 
+}
+```
+
+### 2. Avoid DML/SOQL Queries in Loops
+
+SOQL查询和DML操作是在Apex中最昂贵的操作之一, 两者也有严格的governor limits, 因此将这些操作放在for循环中是一种灾难. 因为我们可以在不知不觉中迅速达到这些limits,特别是在涉及到触发器的时候.
+
+对于DML语句,我们可以将这些语句转移到循环外,相反,在我们的循环中,我们可以将我们希望执行这些操作的记录添加到一个List/Map中,然后对我们的列表执行DML语句.对于几乎所有情况,这是最安全和最好的方法.
+
+```java
+List<Account> accountsToUpdate = new List<Account>(); 
+
+for (Opportunity opp : Trigger.new){
+  if (opp.StageName == 'Closed Won'){
+    Account account = new Account(
+        Id = opp.AcCountId,
+        Has_Closed_Won_Opp__c = true
+    );
+
+    accountsToUpdate.add(account)
+  }
+}
+
+update accountsToUpdate;
+```
+
+### 3. Avoid Hard-coded IDs
+
+在开发阶段, 硬编码ID可能没有任何意外, 但是一旦将代码部署到生产环境中, 这些ID的引用就会失效. 比如记录类型ID, 很容易被硬编码. 我们如果希望利用记录类型, 我们可以通过Name/Develope Name来引用, 这样可以在不同环境保持一致.
+
+```java
+  public static final Id RECORD_TYPE_ID = Schema.SObjectType
+                          .Account
+                          .getRecordTypeInfosByName()
+                          .get('Business Account')
+                          .getRecordTypeId();
+```
+
+如果我们希望使用的ID与一个特定的记录有关,我们可以把这个ID存储到自定义元数据中,并在运行时检索这个值,允许我们在不同的环境中自由改变这个值,或者随着需求的改变而改变.
+
+### 4. Explicitly Declare Sharing Model
+
+当我们开始编写一个全新的类时,我们应该做的第一件事就是声明我们的共享模式, 明确地声明我们的共享模式,可以让我们向未来在我们的代码上工作的其他人(甚至可能是你自己!)展示我们的意图.这可以让他们更容易理解代码中发生的事情. 关于Sharing Model, [Stackexchange](https://salesforce.stackexchange.com/questions/264509/inherited-sharing-vs-no-sharing-declaration) 上的一个回答讲得不错.
+
+### 5. Modularize Your Code
+
+想象一下场景:你已经写了一个方法来帮助建立动态SOQL查询. 另一个需求出现了, 也可以使用这个方法, 所以你把它复制到你的新类中, 而且效果很好, 几天后, 在你的方法中发现了一个相当严重的错误--你及时地修复了它.但是现在你需要去把这个问题也在你加入的另一个类中修复掉.长此以往, 就会很快就变得不可维护了, 因为你需要更新它被复制到的每一个地方, 而且每次都会因为人为错误而带来更大的错误风险.
+
+所以, 我们应该做的是把这些可重用的代码放在他们自己的独立的类中, 并在你需要该功能的地方调用这些类和方法.这可以大大降低你的代码(需要这些方法)的复杂性, 而且当你的模块中发现错误时, 只需要修复一次--你可以保证, 无论在哪里使用这些代码, 它都会被修复, 也不会出错.
+
+### 6. Have a Naming Convention
+
+[命名规则](https://trailhead.salesforce.com/content/learn/modules/success-cloud-coding-conventions/choose-naming-conventions-sc)往往是任何开发团队中的一个热门话题.如果每个人都遵守它们,好处是显而易见的,因为它们使你团队中的其他人更容易理解代码中发生的事情.遵循这个惯例会有很多好处--更清晰的了解代码的结构和意义, 所以你可以把更多的时间花在其他更重要的事情上.
+
+### 7. Avoid Returning JSON to Lightning Components
+
+当我们为Lightning组件编写 `@AuraEnable` 方法时, 我们经常需要返回更复杂的数据结构, 如记录,自定义数据类型, 或这些类型的列表.
+
+一个简单的方法是将这些对象序列化为JSON, 然后在我们组件的JavaScript中反序列化(毕竟这就是JSON标准中的JS的作用!).
+
+```java
+  @AuraEnabLed( cacheable=true )
+  public static String getAccounts() {
+    return JSON.serialize([SELECT Id FROM Account]);
+  } 
+```
+
+然而,这种方法实际上是一种`anti-pattern`,会导致我们的组件出现一些糟糕的性能. 相反, 我们应该直接返回这些对象, 让平台为我们处理其余的事情.
+
+```java
+  @AuraEnabLed( cacheable=true )
+  public static String getAccounts() {
+    return [SELECT Id FROM Account];
+  }
+```
+
+将我们返回的数据转换为JSON会导致我们消耗大量的堆内存, 并花费许多CPU周期将这些对象转换为一个长字符串. 如果有一组相当复杂的处理过程, 或者也许我们有大量的记录需要返回, 我们很快就会遇到governor limits, 或者我们的组件会表现性能不佳.
+
+当我们直接返回我们的结果时,序列化为JSON(因为它必须转换为JSON才能在互联网上传输!)是由平台处理的,在我们的governor limits之外.结果也会自动转换为对象,供我们的组件使用,而不需要执行许多昂贵的JSON.parse()操作.
+
+## Summary
+
+无论从短期还是长期来看, 最佳实践都应该成为每个开发者的重要组成部分.知道为什么和什么可以帮助我们成长为更好的工程师,使我们能够对我们的选择可能产生的影响做出明智的,更聪明的决定.
