@@ -31,7 +31,7 @@ DevOps Center目前对拥有Salesforce专业版,企业版或无限版的用户�
 
 ![img](/img/in-post/post-bg-devops-center.png)
 
-托管包安装完成后, 在开始使用DevOps Center之前, 还需要做一些配置工作, 包括: `Create Connected App`, `Assign DevOps Center Permission Sets to Users`. 具体配置请参考[官方文档](https://help.salesforce.com/s/articleView?id=sf.devops_center_setup.htm&type=5), 配置完成后, 在App Launcher里搜索 `DevOps Center`, 关于如何上手DevOps Center进行项目部署, 会在另外的文章中做详细教程, 本文不再介绍.
+托管包安装完成后, 在开始使用DevOps Center之前, 还需要做一些配置工作, 包括: `Create Connected App`, `Assign DevOps Center Permission Sets to Users`. 具体配置请参考[官方文档](https://help.salesforce.com/s/articleView?id=sf.devops_center_setup.htm&type=5), 配置完成后, 在App Launcher里搜索 `DevOps Center`, 关于如何上手DevOps Center进行项目部署, 会在[另外一篇文章](https://dyncan.github.io/2022/12/09/step-by-step-guide-salesforce-devops-center/)中做详细教程, 本文不再介绍.
 
 ![img](/img/in-post/post-bg-devops-center-app.png)
 
