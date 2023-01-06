@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "使用 MuleSoft Anypoint Studio 同步 Salesforce 数据同步至 Postgres"
+title: "使用 MuleSoft Anypoint Studio 同步 Salesforce 数据至 Postgres"
 subtitle: ""
 date: 2023-01-06 12:00:00
 author: "Peter Dong"
