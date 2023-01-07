@@ -104,7 +104,7 @@ export default class ReactivityExample extends LightningElement {
     this.number = 42; // 没有检测到变化: 之前的值等于新分配的值
     this.number = 43; // 检测到变化
     
-    this.obj.name = 'Bob'; // 检测到变化 (这个地方, 官方文档上说: 这么赋值不会被监测到变化, 事实上这么赋值页面会被重新渲染新的值, 我已经在 twitter上询问文档是否书写有误.)
+    this.obj.name = 'Bob'; // 检测到变化
     this.obj = { name: 'John' }; // 检测到变化 - 用相同的值重新定义对象,创建一个新的对象.
     this.obj = { ...this.obj, title: 'CEO' } // 检测到变化
   }  
