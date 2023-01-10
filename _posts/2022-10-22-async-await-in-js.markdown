@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "简单理解 JavaScript 中的 Async/Await "
+title: "理解 JavaScript 中的 Async/Await "
 subtitle: ""
 date: 2022-10-22 12:00:00
 author: "Peter Dong"
