@@ -12,7 +12,7 @@ tags:
   - Salesforce
 ---
 
-本篇文章的译文内容节选自[「Advanced Apex Programming - Fifth Edition」](https://advancedapex.com/)第一章的第一部分 - `Thinking in Apex`, 书的作者是 [Dan Appleman](https://twitter.com/danappleman). 因为我个人觉得这本书不错, 但是目前国内没有发现有中文版本, 所以我就尝试着翻译这本书, 虽然工作量很大吧, 但是也乐在其中, 截止今天第一章的翻译进度大概在 70% 左右, 不过由于书籍版权的问题, 翻译的所有内容暂时不会公开.
+本篇文章的译文内容节选自[「Advanced Apex Programming - Fifth Edition」](https://advancedapex.com/)第一章的第一部分 - `Thinking in Apex`, 该书的作者是 [Dan Appleman](https://twitter.com/danappleman). 个人感觉这本书写的不错, 但是国内目前没有发现有中文版本, 所以就尝试着翻译这本书, 该书共有三大章节, 13个小节, 只在自己空闲的时间翻译一点, 目前第一章的进度大概在 70% 左右, 不过由于书籍版权的问题, 翻译的所有内容暂时不会公开.
 
 ![img](/img/in-post/post-bg-advanced-apex-programming.png)
 
