@@ -4,7 +4,7 @@ title: "Salesforce OAuth: JWT Bearer 流程"
 subtitle: ""
 date: 2023-01-08 12:00:00
 author: "Peter Dong"
-header-img: "img/post-bg-salesforce-jwt-flow.jpg"
+header-img: "img/post-bg-salesforce-jwt-flow.png"
 catalog: true
 tags:
   - OAuth2.0
@@ -12,13 +12,11 @@ tags:
   - Salesforce
 ---
 
-JWT Bearer Flow 是一种 OAuth 流程,其中外部应用程序(也称为客户端)向Salesforce发送一个称为 `JWT` 的签名 `JSON` 字符串,以获得一个`访问令牌(access token)`.然后,外部应用程序可以使用该访问令牌来读取和写入 Salesforce 中的数据.
+JWT Bearer Flow 是一种 OAuth 流程, 其中外部应用程序(也称为客户端)向Salesforce发送一个称为 `JWT` 的签名 `JSON` 字符串, 以获得一个`访问令牌(access token)`. 然后外部应用程序可以使用该访问令牌来读取和写入 Salesforce 中的数据.
 
-与其他一些 OAuth 流程不同的是,JWT流程不需要最终用户操作.外部应用程序发送 JWT 并进行自我认证,无需人工干预.
+与其他一些 OAuth 流程不同的是, JWT流程不需要最终用户操作. 外部应用程序发送 JWT 并进行自我认证,无需人工干预.
 
-本文主要会介绍在 Salesforce 中实现这一流程所需的必要步骤. 这个流程使用证书来签署 JWT 请求.
-
-在本文开始之前, 先来简单介绍一下 JWT 的构成, 以此希望大家对整个JWT flow的理解更加的透彻.
+在本文开始之前, 先来简单介绍一下 JWT 的构成, 以此希望大家对整个JWT Bearer Flow的理解更加的清楚.
 
 ### JWT 的数据结构
 
@@ -166,7 +164,7 @@ openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out serv
 
   1. 填入 `Name` 和 `Email`
   2. 开启 `Enable OAuth Settings`
-  3. Callback URL: `http://localhost:1717/OauthRedirect`
+  3. Callback URL: `https://login.salesforce.com/services/oauth2/callback`
   4. 开启 `Use digital signatures`, 上传在上一步创建的数字证书(server.crt)
   5. 选择 OAuth 范围:
      1. Manage user data via APIs (api)
@@ -182,7 +180,9 @@ openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out serv
  {"error":"invalid_grant","error_description":"user hasn't approved this consumer"}
 ```
 
-从技术上讲, 我们的应用程序发送的 JWT Token 进行认证,但是, salesforce 此时并不知道哪些资源是可用的, 并得到了用户的许可. 通常情况下, 我们可以发送 `scope` 参数作为 JWT 的一部分去实现,但 Salesforce 不支持这样做. 参考[文档](https://help.salesforce.com/articleView?id=remoteaccess_oauth_jwt_flow.htm&type=5#grants_access), 简单地说, 这意味着在使用 jwt flow 之前至少获得一次刷新令牌(下面的第二个选项)[选项2], 或执行后端审批[下面的第一个选项].
+从技术上讲, 我们的应用程序发送的 JWT Token 进行认证, 但是 salesforce 此时并不知道哪些资源是可用的, 并得到了用户的许可. 通常情况下, 我们可以发送 `scope` 参数作为 JWT 的一部分去实现,但 Salesforce 不支持这样做. [参考文档](https://help.salesforce.com/articleView?id=remoteaccess_oauth_jwt_flow.htm&type=5#grants_access).
+
+简单地说, 这意味着在使用 jwt flow 之前至少获得一次刷新令牌(下面的第二个选项)[选项2], 或执行后端审批[下面的第一个选项].
 
 这里提供了几个不同的选项可以做到这一点:
   - **选项1:** 管理员从 Salesforce 的 connected app 中进行审批
