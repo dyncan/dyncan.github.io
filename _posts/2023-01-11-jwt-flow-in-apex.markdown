@@ -17,7 +17,7 @@ tags:
 ### 将私钥/公钥对转换为 Salesforce Keystore JKS 文件
 
 1. 在 server.key 文件的同一文件夹(通过之前的[文章](https://dyncan.github.io/2023/01/08/salesforce-jwt-bearer-flow/)创建的. 克隆server.key 文件并保存为 server.pem.
-2. 执行如下命令:
+2. 执行如下命令: 
 
 ```
 // 第一步
