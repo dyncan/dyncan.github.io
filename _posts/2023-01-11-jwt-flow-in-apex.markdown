@@ -24,17 +24,17 @@ tags:
 openssl pkcs12 -export -in server.crt -inkey server.pem -out keystore.p12
 
 //第二步
-keytool -importkeystore -srckeystore keystore.p12  -srcstoretype PKCS12 -destkeystore jwt_apex.jks -deststoretype JKS
+keytool -importkeystore -srckeystore keystore.p12  -srcstoretype PKCS12 -destkeystore jwt_flow.jks -deststoretype JKS
 
 //第三步
-keytool -keystore jwt_apex.jks -changealias -alias 1 -destalias jwt_apex
+keytool -keystore jwt_flow.jks -changealias -alias 1 -destalias jwt_flow
 ```
 
 ### 将 JKS 文件导入 Salesforce 里
 
 1. `setup`-> 搜索关键词 **Certificate and Key Management**
 2. 点击 `Import From Keystore`.
-3. 上传 `jwt_apex.jks` 文件, 并提供你创建 `jwt_apex.jks` 文件的密码.
+3. 上传 `jwt_flow.jks` 文件, 并提供你创建 `jwt_flow.jks` 文件的密码.
 
 ### 在 Apex 里使用 JWT 
 
