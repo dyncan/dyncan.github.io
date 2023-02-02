@@ -41,7 +41,7 @@ incomingJson map {
 </DataWeaveResource>
 ```
 
-![img](/img/in-post/post-bg-DataWeave-in-apex-01.png)
+![img](/img/in-post/post-bg-dataweave-in-apex-01.png)
 
 代码创建完成之后, 从终端运行一个命令, 将代码推送到我们的scratch org中.
 
@@ -49,7 +49,7 @@ incomingJson map {
 sfdx force:source:push --json --loglevel fatal
 ```
 
-![img](/img/in-post/post-bg-DataWeave-in-apex-02.png)
+![img](/img/in-post/post-bg-dataweave-in-apex-02.png)
 
 #### 创建 Apex Class
 
