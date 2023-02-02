@@ -11,7 +11,7 @@ tags:
   - MuleSoft
 ---
 
-在 Apex 中处理基于文本的数据是一项相当普遍的任务, 尤其是在系统集成中. 然而, 处理 JSON,XML和 CSV 往往需要写大量的代码, 并且也会导致性能问题, 目前 [DataWeave for Apex](https://help.salesforce.com/s/articleView?id=release-notes.rn_apex_DataWeaveInApex_DevPreview.htm&release=240&type=5)(截至2月3号,处于测试阶段) Salesforce 允许我们用 MuleSoft 的转换语言来处理文本数据. 只需两行代码, 就可以用 DataWeave 脚本处理所有常见的文本数据格式. 与 Apex 一样, DataWeave 脚本在 Salesforce 应用服务器内运行, 对执行的代码执行相同的堆(Heap)和 CPU 限制.
+在 Apex 中处理基于文本的数据是一项相当普遍的任务, 尤其是在系统集成中. 然而, 处理 JSON,XML和 CSV 往往需要写大量的代码, 并且也会导致性能问题, Salesforce 目前推出了 [DataWeave in Apex](https://help.salesforce.com/s/articleView?id=release-notes.rn_apex_DataWeaveInApex_DevPreview.htm&release=240&type=5)(截至2月2号, 仍处于测试阶段). DataWeave in Apex 的目标是能够在 Salesforce 中允许我们用 MuleSoft 的转换语言来处理文本数据. 只需几行代码, 就可以用 DataWeave 脚本处理所有常见的文本数据格式. 与 Apex 一样, DataWeave 脚本在 Salesforce 应用服务器内运行, 对执行的代码执行相同的堆(Heap)和 CPU 限制.
 
 ### DataWeave in Apex 是什么?
 
