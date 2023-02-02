@@ -7,7 +7,7 @@ author: "Peter Dong"
 header-img: "img/post-bg-archive-salesforce-data.jpeg"
 catalog: true
 tags:
-  - solutions
+  - Solutions
   - Archive
   - Big Objects
 ---
