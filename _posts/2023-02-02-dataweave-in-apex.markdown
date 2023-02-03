@@ -17,7 +17,7 @@ tags:
 
 企业应用程序经常需要在 CSV, JSON, XML 与 Apex 对象等格式之间进行数据转换. Apex 中的 DataWeave 补充了 Apex 对 JSON 和 XML 处理的本地支持, 并使数据转换更容易编码, 更具可扩展性和效率. Apex 的开发人员可以更专注于解决业务问题, 而不是解决文件格式的具体问题. 而且你不需要成为 MuleSoft 的客户, 也不需要拥有任何特定的 Salesforce 许可证, 就可以在 Apex 中使用 DataWeave.
 
-### 创建和部署一个简单的 DataWeave 项目
+### 创建和部署一个简单的 DataWeave 项目 
 
 首先,我们需要创建一个 SFDX Project, 再连接一个 dev hub org, 之后在项目的 `force-app/main/default` 路径下创建一个文件夹 **dw**. 在这个文件夹里, 我们需要创建两个文件.
 
