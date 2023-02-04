@@ -65,7 +65,10 @@ netease_comment: false
 
 # Analytics settings
 # Baidu Analytics
+
 # Google Analytics
+ga_track_id: "G-DL8BKRZB6S"
+ga_domain: dyncan.com
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
