@@ -15,13 +15,7 @@ tags:
 
 递归 Trigger 对 Salesforce 开发人员来说是个大问题. 我们总是希望在 Salesforce 中避免递归调用 Trigger. 但是, 如果我们有一个庞大的功能复杂的Org, 其中有多个带有父子关联的记录更新的触发器, 包括 Process builder 和 Workflow field updates等. 那么我们就会很容易面临递归调用 Trigger 的问题.
 
-因此, 今天我将分享一些方法, 使用这些方法我们可以轻松地避免递归触发器. 在使用这些方法的同时, 我们还应该遵循以下最佳实践.
-
-针对 Trigger 的最佳实践:
-
-- **一个对象对应唯一一个Trigger**: 这样的话, 我们不必考虑 Trigger 的执行顺序. 由于无法控制哪个 Trigger 会先被执行.
-- **Trigger 里的逻辑尽量少**: 使用 Trigger 框架, 然后在 Handler 里处理 具体的业务逻辑
-- **处理递归 Trigger**: 为了避免触发器的递归, 确保你的触发器只被执行一次. 如果递归处理得不好, 你可能会遇到错误: "Maximum trigger depth exceeded'".
+因此, 今天我将分享一些方法, 使用这些方法我们可以轻松地避免递归触发器. 
 
 ### 如何避免在 Trigger 中发生递归调用呢?
 
@@ -32,7 +26,7 @@ tags:
 - 使用静态 Map
 - 使用 Old Map
 - 遵循 Apex Trigger 最佳实践
-- 
+  
 让我们详细讨论以上解决方案和它们的局限性.
 
 #### 使用静态的 Boolean 变量
@@ -147,6 +141,14 @@ for(Opportunity opp: Trigger.New){
 }
 ```
 你的代码只会在值改变时执行.
+
+### 总结
+
+最后我们在使用这些方法的同时, 还应该遵循以下最佳实践.
+
+- **一个对象对应唯一一个Trigger**: 这样的话, 我们不必考虑 Trigger 的执行顺序. 由于无法控制哪个 Trigger 会先被执行.
+- **Trigger 里的逻辑尽量少**: 使用 Trigger 框架, 然后在 Handler 里处理 具体的业务逻辑
+- **处理递归 Trigger**: 为了避免触发器的递归, 确保你的触发器只被执行一次. 如果递归处理得不好, 你可能会遇到错误: "Maximum trigger depth exceeded'".
 
 
 
