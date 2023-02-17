@@ -69,6 +69,7 @@ netease_comment: false
 # Google Analytics
 ga_track_id: "G-DL8BKRZB6S"
 ga_domain: dyncan.com
+google_ad_client: pub-9202864284624246
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
