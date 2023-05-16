@@ -9,19 +9,21 @@ If you are seeking a highly motivated and skilled professional with excellent co
 ## Personal Projects
 
 - [Integration-Patterns-and-Practices-ZH_CN](https://github.com/dyncan/Integration-Patterns-and-Practices-ZH_CN) 
-  - the translation of this technical document is incomplete, the purpose of translating it is two-fold: firstly, Feeling that integration is used more in the Salesforce project, secondly, providing some reference for some beginners who are not very good at English. __[View website](http://dyncan.com/Integration-Patterns-and-Practices-ZH_CN/)__
+  - the translation of this technical document is incomplete, the purpose of translating it is two-fold: firstly, Feeling that integration is used more in the Salesforce project, secondly, providing some reference for some beginners who are not very good at English. __[View website](http://dyncan.com/Integration-Patterns-and-Practices-ZH_CN/){:target="_blank"}__
 
-- [Dataloader.sh](https://github.com/dyncan/dataloader.sh)
+- [Dataloader.sh](https://github.com/dyncan/dataloader.sh){:target="_blank"}
   - dataloader.sh is a scripting tool based on apache ant, similar to salesforce's dataloader. it currently supports data import/export and can be executed on any server. additionally, it can also periodically execute salesforce data through `crontab` commands.
 
-- [Field-Permission-Viewer](https://github.com/dyncan/Field-Permission-Viewer)
+- [Field-Permission-Viewer](https://github.com/dyncan/Field-Permission-Viewer){:target="_blank"}
   - Using this component, an administrator can easily see the set of field permissions for a given user on a given object.
 
-- [Slackforce](https://github.com/dyncan/slackforce)
+- [Slackforce](https://github.com/dyncan/slackforce){:target="_blank"}
   - Use Golang to parse Slack channel logs and sync the log data to the Salesforce platform.
 
-- [Salesforce-Limits-Tracker](https://github.com/dyncan/Salesforce-Limits-Tracker)
+- [Salesforce-Limits-Tracker](https://github.com/dyncan/Salesforce-Limits-Tracker){:target="_blank"}
   - This application uses Node.js, React.js, and JSforce to display organizational limitations in Salesforce. Node.js builds the backend, while React.js creates the user interface for viewing the limitations.
 
-- [LWC-Practice-Scenarios](https://github.com/dyncan/lwc-practice-scenarios)
+- [LWC-Practice-Scenarios](https://github.com/dyncan/lwc-practice-scenarios){:target="_blank"}
   - this repository is primarily focused on implementing various lwc scenarios. it emphasizes the use of javascript, code encapsulation, and optimization to enhance one's own lwc capabilities.
+
+If you're a Chinese user, here are some [Salesforce tutorials](https://space.bilibili.com/12506997){:target="_blank"} that you can follow, and share them with those who need it.
