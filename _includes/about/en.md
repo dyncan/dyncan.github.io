@@ -21,7 +21,7 @@ If you are seeking a highly motivated and skilled professional with excellent co
   - Use Golang to parse Slack channel logs and sync the log data to the Salesforce platform.
 
 - [Salesforce-Limits-Tracker](https://github.com/dyncan/Salesforce-Limits-Tracker)
-  - This application uses Node.js, React.js, and JSforce to display organizational restrictions in Salesforce CRM. Node.js builds the backend, while React.js creates the user interface for viewing the restrictions.
+  - This application uses Node.js, React.js, and JSforce to display organizational limitations in Salesforce. Node.js builds the backend, while React.js creates the user interface for viewing the limitations.
 
 - [LWC-Practice-Scenarios](https://github.com/dyncan/lwc-practice-scenarios)
   - this repository is primarily focused on implementing various lwc scenarios. it emphasizes the use of javascript, code encapsulation, and optimization to enhance one's own lwc capabilities.
