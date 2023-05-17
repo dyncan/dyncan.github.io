@@ -26,4 +26,4 @@ If you are seeking a highly motivated and skilled professional with excellent co
 - [LWC-Practice-Scenarios](https://github.com/dyncan/lwc-practice-scenarios){:target="_blank"}
   - this repository is primarily focused on implementing various lwc scenarios. it emphasizes the use of javascript, code encapsulation, and optimization to enhance one's own lwc capabilities.
 
-If you're a Chinese user, here are some [Salesforce tutorials](https://space.bilibili.com/12506997){:target="_blank"} that you can follow, and share them with those who need it.
+If you're interested in Salesforce technology, you can follow my [Bilibili channel](https://space.bilibili.com/12506997){:target="_blank"} where I'll be posting regular updates on Salesforce-related techniques and best practices.
