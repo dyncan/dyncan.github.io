@@ -32,7 +32,7 @@ layout: default
                 <div style="display: flex; justify-content: center; align-items: center;">
                     <a href=" https://dyncan.com/sponsor" target="_blank"><img height="36"
                             style="border:0px; height:36px; cursor:pointer"
-                            src="https://storage.ko-fi.com/cdn/kofi3.png?v=3" border="0" alt="Buy Me a Coffee" />
+                            src="/img/kofi3.png" border="0" alt="Buy Me a Coffee" />
                     </a>
                 </div>
 
@@ -112,7 +112,7 @@ layout: default
 {% endif %}
 
 {% if site.netease_comment %}
-<!-- 网易云跟帖JS代码 start -->
+<!-- 网易云跟帖 JS 代码 start -->
 <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
 <script>
     var cloudTieConfig = {
@@ -124,12 +124,12 @@ layout: default
     var yunManualLoad = true;
     Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
 </script>
-<!-- 网易云跟帖JS代码 end -->
+<!-- 网易云跟帖 JS 代码 end -->
 {% endif %}
 
 
 {% if site.disqus_username %}
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<!-- disqus 公共 JS 代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "{{site.disqus_username}}";
@@ -142,7 +142,7 @@ layout: default
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<!-- disqus 公共JS代码 end -->
+<!-- disqus 公共 JS 代码 end -->
 {% endif %}
 
 
