@@ -4,7 +4,7 @@ Through my good understanding of Apex and Lightning page builds, I can guarantee
 
 I can quickly learn new technologies and processes, successfully applying them to projects and operations. I am eager to join a dynamic and innovative team where I can continue to advance my skills while making a positive impact.
 
-If you are seeking a highly motivated and skilled professional with excellent communication and problem-solving skills, then please feel free to [contact me](mailto:imdongyannan@gmail.com). I would be delighted to discuss any potential opportunities and demonstrate how I can contribute to your organization.
+If you are seeking a highly motivated and skilled professional with excellent communication and problem-solving skills, then please feel free to [contact me](mailto:hi@dyncan.com). I would be delighted to discuss any potential opportunities and demonstrate how I can contribute to your organization.
 
 ## Personal Projects
 
