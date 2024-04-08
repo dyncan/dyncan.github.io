@@ -49,7 +49,7 @@ git clone git@github.com:dyncan/Salesforce-Inspector-reloaded.git
 
 3. 在开始本地开发之前，务必先阅读项目的 `README` 文档，因为该文档可能包含有关如何贡献代码的重要说明。例如，在提交 PR 或修复 Bug 时，[Salesforce-Inspector-reloaded](https://github.com/tprouvot/Salesforce-Inspector-reloaded) 项目要求从 _releaseCandidate_ 分支创建新分支。此外，`README` 文档还会详细说明分支命名的规范，例如 `feature/my-new-feature` 或 `bugfix/xxx`。鉴于 Salesforce 的特殊性，您还需要准备一个 Salesforce developer org，以便在您对项目进行修改后运行其中的测试用例，以确保项目的现有功能不受影响。
 
-4. 针对 [Salesforce-Inspector-reloaded] 项目，如果你的 Pull Request (PR) 是为了新增一个功能，请先在开源项目中提交一个功能请求 (Feature Request)。在页面上选择 `Pull requests` 选项卡，然后点击右侧的 `New pull request` 按钮。在 PR 的标题中清晰地描述你要添加的新功能，并在描述中详细说明该功能的目的和实现方式。这样可以让项目的维护者和其他贡献者对新增功能有充分的了解。
+4. 针对 [Salesforce-Inspector-reloaded](https://github.com/tprouvot/Salesforce-Inspector-reloaded) 项目，如果你的 Pull Request (PR) 是为了新增一个功能，请先在开源项目中提交一个功能请求 (Feature Request)。在页面上选择 `Pull requests` 选项卡，然后点击右侧的 `New pull request` 按钮。在 PR 的标题中清晰地描述你要添加的新功能，并在描述中详细说明该功能的目的和实现方式。这样可以让项目的维护者和其他贡献者对新增功能有充分的了解。
 
 5. 在一切都准备好之后，就可以切换到一个新的分支，分支名最好紧贴这个更新的内容，比如 `feature/add-new-button`。
 ```
