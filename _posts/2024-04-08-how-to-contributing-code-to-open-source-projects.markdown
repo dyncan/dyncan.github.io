@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to submit PR for open source projects on GitHub?"
+title: "如何为开源项目贡献 PR?"
 subtitle: ""
 date: 2024-04-08 12:00:00
 author: "Peter Dong"
