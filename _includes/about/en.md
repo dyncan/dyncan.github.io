@@ -4,7 +4,7 @@ My skills in Apex and Lightning development allow me to ensure high code quality
 
 With a quick aptitude for adopting new technologies and methodologies, I have effectively incorporated them into projects and workflows. I am eager to join a forward-thinking and innovative team, where I can further develop my skills and contribute positively.
 
-If you're looking for a highly motivated professional with strong communication and problem-solving abilities, I invite you to [get in touch](mailto:hi@dyncan.com). I'm excited about the possibility of discussing how I can bring value to your organization and explore potential collaboration opportunities.
+If you're looking for a highly motivated professional with strong communication and problem-solving abilities, I invite you to [get in touch](mailto:dynckm@gmail.com). I'm excited about the possibility of discussing how I can bring value to your organization and explore potential collaboration opportunities.
 
 ## Personal Projects
 
