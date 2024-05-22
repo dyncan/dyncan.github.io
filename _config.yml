@@ -1,10 +1,10 @@
 # Site settings
 title: Peter's Blog
-SEOTitle: Peter的博客 | Peter's Blog
+SEOTitle: Peter 的博客 | Peter's Blog
 header-img: img/home-bg.jpg
 email: imdongyannan@gmail.com
 description: "这里是 @PeterDong 的个人博客，与你一起发现更大的世界"
-keyword: "Peter, Blog, 博客, 个人网站, 互联网, Web, JavaScript, Salesforce, SaaS"
+keyword: "Peter, Blog, 博客，个人网站，互联网，Web, JavaScript, Salesforce, SaaS"
 url: "https://dyncan.github.io" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -12,7 +12,7 @@ baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 future: true
 
 # SNS settings
-RSS: false
+RSS: true
 # weibo_username: 
 # zhihu_username: 
 github_username: dyncan
