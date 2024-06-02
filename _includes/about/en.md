@@ -8,14 +8,21 @@ If you're looking for a highly motivated professional with strong communication 
 
 ## Personal Projects
 
+### [Salesforce Spotlight](https://chromewebstore.google.com/detail/salesforce-spotlight/kcnnhfdenihbihoikgjfapgphapdoggd){:target="_blank"}
+
+ `Salesforce`, `Chrome extension`, `Developer Tool`
+
+ - Salesforce Spotlight is a powerful Chrome extension designed to enhance your productivity on the Salesforce Lightning platform. With its advanced search and navigation features, Salesforce Spotlight allows you to quickly locate and access a wide range of Salesforce resources, significantly improving your efficiency. <br/> 
+  **[View more](https://github.com/dyncan/salesforce-spotlight-chrome-extension){:target="_blank"}**
+
 ### [Integration-Patterns-and-Practices-ZH_CN](https://github.com/dyncan/Integration-Patterns-and-Practices-ZH_CN){:target="_blank"}
 
  `Salesforce`, `document`, `Translation`
 
 - The translation is completed with the purpose of:
   - Using integration more in Salesforce projects.
-  - Providing reference for English beginners.
-- __[View website](http://dyncan.com/Integration-Patterns-and-Practices-ZH_CN/){:target="_blank"}__
+  - Providing reference for English beginners. <br/>
+**[View website](http://dyncan.com/Integration-Patterns-and-Practices-ZH_CN/){:target="_blank"}**
 
 ### [Dataloader.sh](https://github.com/dyncan/dataloader.sh){:target="_blank"}
 
