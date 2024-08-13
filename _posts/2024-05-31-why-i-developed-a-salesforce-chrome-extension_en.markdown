@@ -50,5 +50,5 @@ By developing the Salesforce Spotlight Chrome Extension, I aim to help Salesforc
 
 ## Download and Experience
 
-Currently, the extension is still in the testing phase and has not been released on the Chrome Web Store. If you want to experience it, please click [Salesforce Spotlight](https://chromewebstore.google.com/detail/salesforce-spotlight/kcnnhfdenihbihoikgjfapgphapdoggd) to download the latest version.
+If you want to experience it, please click [Salesforce Spotlight](https://chromewebstore.google.com/detail/salesforce-spotlight/kcnnhfdenihbihoikgjfapgphapdoggd) to download the latest version.
 

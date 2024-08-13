@@ -49,5 +49,5 @@ tags:
 
 ### 下载体验
 
-目前，该插件仍处于测试阶段，尚未发布到 Chrome Web Store。如果您想体验，请点击 [Salesforce Spotlight](https://chromewebstore.google.com/detail/salesforce-spotlight/kcnnhfdenihbihoikgjfapgphapdoggd){:target="_blank"} 下载最新版本。
+如果您想体验，请点击 [Salesforce Spotlight](https://chromewebstore.google.com/detail/salesforce-spotlight/kcnnhfdenihbihoikgjfapgphapdoggd){:target="_blank"} 下载最新版本。
 
