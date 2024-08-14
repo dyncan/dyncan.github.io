@@ -4,7 +4,7 @@ title: "我为什么要开发一个 Salesforce Chrome Extension?"
 subtitle: ""
 date: 2024-05-30 12:00:00
 author: "Peter Dong"
-header-img: "img/post-bg_salesforce_spotlight.png"
+header-img: "img/post-bg_salesforce_spotlight.jpg"
 catalog: true
 tags:
   - Salesforce
