@@ -4,7 +4,7 @@ title: "如何为开源项目贡献 PR?"
 subtitle: ""
 date: 2024-04-08 12:00:00
 author: "Peter Dong"
-header-img: "img/post-bg-guide-to-contributing-code-open-source-project.png"
+header-img: "img/post-bg-guide-to-contributing-code-open-source-project.jpg"
 catalog: true
 tags:
   - Salesforce
