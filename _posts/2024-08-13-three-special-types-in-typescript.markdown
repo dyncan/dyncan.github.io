@@ -20,7 +20,7 @@ TypeScript 的类型系统中，`any`、`unknown`和`never`这三种特殊类型
 
 `any`类型是 TypeScript 类型系统中最灵活的类型，它允许赋予任何类型的值，并且可以对其进行任何操作。使用`any`类型实际上是在告诉编译器跳过类型检查。
 
-#### 经典示例
+#### 示例
 
 ```typescript
 let flexibleVar: any;
@@ -124,7 +124,7 @@ processUser({ name: "John", age: "30" });
 
 `unknown`类型是 TypeScript 3.0 引入的类型，它类似于`any`，但提供了更强的类型安全性。`unknown`类型的变量可以接受任何值，但在使用前必须进行类型检查或类型断言，可以视为严格版的 `any`。
 
-#### 经典示例
+#### 示例
 
 ```typescript
 let safeVar: unknown;
@@ -182,7 +182,7 @@ processUser({ name: "John", age: "30" }); // 编译期会报错
 
 `never`类型表示永远不会出现的值的类型。它通常用于表示会抛出异常或永远不会返回的函数的返回类型，以及在某些高级类型操作中表示不可能的情况。
 
-#### 经典示例
+#### 示例
 
 ```typescript
 // 总是抛出错误的函数
@@ -304,7 +304,7 @@ function getArea(shape: Shape) {
 
 ## 总结
 
-通过这些经典示例和易错场景，我们可以看到`any`、`unknown`和`never`这三种特殊类型在 TypeScript 中的独特作用：
+通过这些示例和易错场景，我们可以看到`any`、`unknown`和`never`这三种特殊类型在 TypeScript 中的独特作用：
 
 1. `any`类型提供了最大的灵活性，但应谨慎使用，因为它会失去 TypeScript 的类型安全性。
 2. `unknown`类型是一种更安全的选择，它要求在使用前进行类型检查，非常适合处理不确定类型的数据。
