@@ -35,7 +35,7 @@ console.log(flexibleVar.nonExistentMethod());
 ```
 ![img](/img/in-post/post-three-special-types-in-typescript-01.png)
 
-具体分析如下：
+**具体分析如下：**
 
 1. **编译时不会报错：**
    - 由于 `flexibleVar` 被定义为 `any` 类型，TypeScript 编译器允许对该变量进行任何类型的赋值操作及方法调用。因此，在编译时代码不会报错。
