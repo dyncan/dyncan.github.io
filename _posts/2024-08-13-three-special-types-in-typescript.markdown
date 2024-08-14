@@ -62,7 +62,7 @@ console.log(str.toUpperCase());  // 运行时错误
 
 ![img](/img/in-post/post-three-special-types-in-typescript-02.png)
 
-错误分析
+**错误分析：**
 
 1. **`pollutedArray.push(42);`**
    - **分析**: 这行代码将数字 `42` 添加到 `pollutedArray` 数组中，因为 `pollutedArray` 的类型是 `any[]`，它可以包含任何类型的元素，所以不会报错。
@@ -95,7 +95,7 @@ processUser({ name: "John", age: "30" });
 
 ![img](/img/in-post/post-three-special-types-in-typescript-03.png)
 
-错误分析
+**错误分析：**
 
 在运行以下代码时可能会遇到一些错误：
 
