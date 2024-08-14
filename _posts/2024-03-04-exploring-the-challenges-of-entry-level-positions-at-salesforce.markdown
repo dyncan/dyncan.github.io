@@ -4,7 +4,7 @@ title: "Exploring the Challenges of Entry-Level Positions at Salesforce"
 subtitle: ""
 date: 2024-03-04 12:00:00
 author: "Peter Dong"
-header-img: "img/exploring-the-challenges-of-entry-level-positions-at-salesforce.png"
+header-img: "img/exploring-the-challenges-of-entry-level-positions-at-salesforce.jpg"
 catalog: true
 tags:
   - Salesforce
