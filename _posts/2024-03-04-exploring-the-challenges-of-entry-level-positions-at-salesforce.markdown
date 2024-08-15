@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Exploring the Challenges of Entry-Level Positions at Salesforce"
+title: "探索入门级职位在 Salesforce 面临的挑战"
 subtitle: ""
 date: 2024-03-04 12:00:00
 author: "Peter Dong"
