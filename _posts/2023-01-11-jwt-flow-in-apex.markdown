@@ -12,12 +12,12 @@ tags:
   - Salesforce
 ---
 
-在之前的[文章](https://dyncan.github.io/2023/01/08/salesforce-jwt-bearer-flow/)中介绍了什么是 JWT Token, 以及如何创建 JWT Token, 并通过 JWT Token 获取 Salesforce 访问令牌, 今天主要介绍如何在 Salesforce Apex 类中使用同样的功能. 目前 Salesforce 只支持Java Keystore(JKS)格式, 用于将私钥/公钥对(含证书)导入 Salesforce org 中.
+在之前的[文章](https://dyncan.github.io/2023/01/08/salesforce-jwt-bearer-flow/)中介绍了什么是 JWT Token, 以及如何创建 JWT Token, 并通过 JWT Token 获取 Salesforce 访问令牌，今天主要介绍如何在 Salesforce Apex 类中使用同样的功能。目前 Salesforce 只支持 Java Keystore(JKS) 格式，用于将私钥/公钥对 (含证书) 导入 Salesforce org 中。
 
 ### 将私钥/公钥对转换为 Salesforce Keystore JKS 文件
 
-1. 在 server.key 文件的同一文件夹(通过之前的[文章](https://dyncan.github.io/2023/01/08/salesforce-jwt-bearer-flow/)创建的. 克隆server.key 文件并保存为 server.pem.
-2. 执行如下命令: 
+1. 在 server.key 文件的同一文件夹 (通过之前的[文章](https://dyncan.github.io/2023/01/08/salesforce-jwt-bearer-flow/)创建的。克隆 server.key 文件并保存为 server.pem.
+2. 执行如下命令：
 
 ```
 // 第一步
@@ -34,7 +34,7 @@ keytool -keystore jwt_flow.jks -changealias -alias 1 -destalias jwt_flow
 
 1. `setup`-> 搜索关键词 **Certificate and Key Management**
 2. 点击 `Import From Keystore`.
-3. 上传 `jwt_flow.jks` 文件, 并提供你创建 `jwt_flow.jks` 文件的密码.
+3. 上传 `jwt_flow.jks` 文件，并提供你创建 `jwt_flow.jks` 文件的密码。
 
 ### 在 Apex 里使用 JWT 
 
@@ -67,13 +67,13 @@ public class JWTBearerFlow {
 }
 ```
 
-不过我们发现上面代码的所有实现细节有被呈现出来, 这样的类是不安全的. 这在 Salesforce 中不是最佳实践. 我建议使用如下 `Named Credentials` 来实现:
+不过我们发现上面代码的所有实现细节有被呈现出来，这样的类是不安全的。这在 Salesforce 中不是最佳实践。我建议使用如下 `Named Credentials` 来实现：
 
-如图所示:
+如图所示：
 
 ![img](/img/in-post/post-bg-jwt-apex-01.png)
 
-代码更新如下:
+代码更新如下：
 
 ```java
 String service_limits = '/services/data/v56.0/sobjects/Account/listviews/';
