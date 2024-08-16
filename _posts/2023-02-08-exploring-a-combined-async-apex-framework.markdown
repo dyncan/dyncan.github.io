@@ -12,40 +12,40 @@ tags:
   - Async Apex
 ---
 
-> https://developer.salesforce.com/blogs/2023/02/exploring-a-combined-async-apex-framework
+> [原文链接](https://developer.salesforce.com/blogs/2023/02/exploring-a-combined-async-apex-framework)
 
 你应该使用哪个异步 Apex 框架？这篇博客提供了一个自动为你选择 Batchable 或 Queueable Apex 的解决方案。
 
-[Batchable](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_batch_interface.htm) 和 [Queueable](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_queueing_jobs.htm) 是 Salesforce Platform 上可供开发人员使用的两个主要异步框架。在处理记录时，你可能会发现自己在想应该使用哪一个？在这篇文章中，我们将介绍一种替代解决方案，它会自动在 Batchable 和 Queueable Apex 框架之间选择正确的选项--让您可以自由地专注于需要实现的业务逻辑，而不是哪种类型的异步执行是最好的。
+[Batchable](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_batch_interface.htm) 和 [Queueable](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_queueing_jobs.htm) 是 Salesforce 平台上开发人员可用的两种主要异步框架。在处理记录时，您可能会思考应该使用哪一种。在本文中，我们将介绍一种替代方案，它能自动在 Batchable 和 Queueable 这两种 Apex 框架之间选择最合适的选项——这样您就可以专注于需要实现的逻辑，而不必担心选择哪种异步执行方式最佳。
 
-让我们一起探讨一种结合两者优点的方法。Batchable 和 Queueable 都经常被用于：
+让我们来探讨一种结合两者优点的方法。Batchable 和 Queueable 经常用于：
 
-- 执行 API callout (在同步上下文中触发器或直接在 scheduled job 直接 callout, 目前是不允许的.)
-- 处理数据 (由于 Salesforce 限制等原因，在同步上下文中调用代码时无法使用它)
+- 执行 API 调用 (因为在同步触发器代码或直接在计划作业中不允许进行调用)
+- 处理数据 (由于 Salesforce 的限制，在同步调用代码时无法处理这些数据)
 
-话虽如此，这两种框架都存在一些有趣的差异 (您可能已经比较熟悉了), 这使得在使用这两种框架时有显而易见的优势和劣势。
+话虽如此，这两个框架之间存在一些有趣的区别 (您可能已经熟悉),这些区别在使用时会产生明显的优缺点。
 
-Batchable Apex 是：
+Batchable Apex:
 
-- Job 启动的速度较慢，在 Batchable 块之间执行速度也慢。
-- 在其 start 方法中能够查询多达 5000 万条记录。
-- 在任何时候都只能有 5 个 active 的批处理在工作。
-- 可以维护一个批处理作业的队列，在 5 个并发批处理作业正在处理时启动，但弹性队列 (flex queue) 中最多只能有 100 个批处理作业。
+- 启动较慢，在 Batchable 块之间移动较慢
+- 在其 start 方法中可以查询多达 5000 万条记录
+- 在任何给定时间只能有五个批处理作业同时运行
+- 可以在队列中维护批处理作业，以便在五个并发批处理作业繁忙时启动，但灵活队列中最多只能有 100 个批处理作业
 
-Queueable Apex 是：
+Queueable Apex:
 
-- 迅速执行，快速实施。
-- 仍然受制于 Apex 的查询行数限制，即 50,000 条。
-- 可以在一个同步事务中启动多达 50 个 Queueable apex 作业。
-- 在一个异步事务中，就只能有 1 个 Queueable apex 作业。
+- 执行快速，实现简单
+- 仍受 Apex 查询行数限制为 50,000 条记录
+- 在同步事务中最多可以启动 50 个 queueable apex 作业
+- 在异步事务中只能将 1 个 queueable 作业加入队列
 
-这些优点和缺点提供了一个可以抽象出异步流程定义的机会，并且无论我们需要操作的记录数量如何，都可以创建一些可重复使用的代码。
+这些优缺点为我们提供了一个独特的机会，可以抽象异步进程的定义方式，并创建可重用的内容，无论您需要处理多少记录。
 
-让我们先看一个示例实现，然后看看这个抽象过程是如何工作的。
+让我们来看一个实现示例，然后详细了解这种抽象是如何工作的。
 
-### 一个设计范例
+### 首先，让我们看一个设计的使用示例
 
-这个例子假设你正在使用一个 B2C Salesforce 组织，其中重要的是账户名称必须始终与联系人的名称相匹配，并且每个帐户只能有一个联系人。请注意，在我们的示例 ContactAsyncProcessor 中，只有与此业务规则相关的逻辑才需要存在。
+这个例子假设您正在使用一个 B2C（企业对消费者）Salesforce 组织，其中账户名称始终需要与联系人姓名匹配，并且每个账户只能关联一个联系人。请注意，在我们的 ContactAsyncProcessor 示例中，唯一需要存在的逻辑恰恰与这条业务规则相关：
 
 ```java
 public class ContactAsyncProcessor extends AsyncProcessor {
@@ -72,29 +72,29 @@ new ContactAsnycProcessor()
     .kickoff();
 ```
 
-当然，这是一个非常简单的示例，代码没有处理像 Contact.AccountId 为空，处理中间名以及更多的情况，这个例子只是展示了如何使用子类化来简化代码。在这里，您不需要担心示例查询返回的结果数量，或是否应该使用 Batchable 或 Queueable 实现，您只需关注业务规则即可。
+当然，这只是一个非常简单的示例 —— 它没有展示诸如 Contact.AccountId 为空、处理中间名等更复杂的情况。不过，这个例子确实展示了子类化如何帮助简化代码。在这里，你不需要担心示例查询会返回多少结果，也不用考虑是否应该使用 Batchable 或 Queueable 实现 —— 你可以专注于业务规则本身。
 
-那个 AsyncProcessor 父类是什么样子的？让我们来看看幕后发生了什么。
+那么，AsyncProcessor 父类最终会是什么样子呢？让我们来看看幕后发生了什么。
 
 ### 创建一个共享异步处理器
 
-首先，在整合 Batchable 和 Queueable 接口时，我们需要注意一些有趣的技术限制：
+首先，在尝试整合 Batchable 和 Queueable 接口时，我们需要注意一些有趣的技术限制：
 
-- 批处理类必须是外部类。将内部类声明为 Batchable 是有效语法，但尝试通过 Database.executeBatch 执行内部类将导致抛出异常。
-  - 这个异步异常只会出现在日志中，不会在同步上下文中直接返回给调用者，这可能会产生误导，因为执行不会像您对传统异常所期望的那样停止。
-- queueable 类可以是内部类，但是实现了 Database.Batchable 和 Database.Stateful 的外部类不能同时实现 System.Queueable.
+- 批处理类必须是外部类。虽然在语法上可以将内部类声明为 Batchable，但如果尝试通过 Database.executeBatch 执行内部类，将会抛出异常。
+  - 这种异步异常只会在日志中显示，而不会在同步上下文中直接返回给调用者，这可能会造成误导，因为执行不会像传统异常那样立即停止。
+- 队列类可以是内部类，但实现了 Database.Batchable 和 Database.Stateful 的外部类不能同时实现 System.Queueable。
 
-您希望此框架灵活且可扩展，而无需对其进行任何更改。这个框架应该能够：
+您希望这个框架具有灵活性和可扩展性，无需进行任何修改。它应该能够：
 
 - 获取一个查询或记录列表。
-- 评估有多少记录是查询或列表的一部分。
-- 检查您是否低于某个阈值——哪些子类应该能够修改——启动一个 Queueable. 否则，启动一个 Batchable.
+- 评估查询或列表中包含的记录数量。
+- 检查是否低于某个阈值 (子类应能修改此阈值) - 如果低于阈值则启动 Queueable，否则启动 Batchable。
 
-此图显示了同步发生与异步发生的情况：
+下面的图表展示了需要同步执行和异步执行的内容：
 
 ![img](/img/in-post/post-bg-async-apex-framework-process-map.png)
 
-这些限制可以帮助指导共享抽象的整体设计。例如，在异步处理记录之前，您应该有一种与此类交互的方法，这是接口的理想位置。
+这些限制可以帮助指导共享抽象的整体设计。例如，在异步处理记录之前，你应该有一种方式与这个类进行交互 —— 这正是定义接口的绝佳位置。
 
 ```java
 public interface Process {
