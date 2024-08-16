@@ -1,10 +1,10 @@
-I am currently seeking new career challenges as a [Certified Salesforce.com Platform Developer](/img/certifications.png), equipped with 8 years of practical experience in the Salesforce ecosystem. My proficiency spans the development lifecycle, application design, integration patterns, and deployment strategies, ensuring a well-rounded expertise.
+As a [Certified Salesforce.com Platform Developer](/img/certifications.png) with 8 years of hands-on experience, I am seeking new career opportunities. My expertise spans the entire development lifecycle, including application design, integration patterns, and deployment strategies.
 
-My skills in Apex and Lightning development allow me to ensure high code quality and meet business needs through detailed code reviews, enhancements, and authorship. I excel at creating reusable UI/UX components with the Lightning component framework and fine-tuning code to adhere to Salesforce's governor limits.
+My proficiency in Apex and Lightning development enables me to ensure high code quality and meet business requirements through thorough code reviews, enhancements, and original development. I excel at creating reusable UI/UX components using the Lightning component framework and fine-tuning code to adhere to Salesforce's governor limits.
 
-With a quick aptitude for adopting new technologies and methodologies, I have effectively incorporated them into projects and workflows. I am eager to join a forward-thinking and innovative team, where I can further develop my skills and contribute positively.
+With a knack for quickly adopting new technologies and methodologies, I effectively incorporate them into projects and workflows. I'm eager to join a forward-thinking, innovative team where I can further develop my skills and make meaningful contributions.
 
-If you're looking for a highly motivated professional with strong communication and problem-solving abilities, I invite you to [get in touch](mailto:dynckm@gmail.com). I'm excited about the possibility of discussing how I can bring value to your organization and explore potential collaboration opportunities.
+If you're looking for a highly motivated professional with strong communication and problem-solving abilities, I invite you to [get in touch](mailto:dynckm@gmail.com). I'm excited to discuss how I can add value to your organization and explore potential collaboration opportunities.
 
 ## Personal Projects
 
@@ -13,7 +13,14 @@ If you're looking for a highly motivated professional with strong communication 
  `Salesforce`, `Chrome extension`, `Developer Tool`
 
  - Salesforce Spotlight is a powerful Chrome extension designed to enhance your productivity on the Salesforce Lightning platform. With its advanced search and navigation features, Salesforce Spotlight allows you to quickly locate and access a wide range of Salesforce resources, significantly improving your efficiency. <br/> 
-  **[View more](https://github.com/dyncan/salesforce-spotlight-chrome-extension){:target="_blank"}**
+  **[Watch the Demo](https://www.youtube.com/playlist?list=PLVWORuLxDq7ka2zmvHU3s446_qwN1VOap){:target="_blank"}**
+
+### [Salesforce SOQL Booster](https://marketplace.visualstudio.com/items?itemName=dyncan.salesforce-soql-booster){:target="_blank"}
+
+ `Salesforce`, `VS Code extension`, `Developer Tool`
+
+ - Salesforce SOQL Booster is a Visual Studio Code extension designed to enhance the efficiency of Salesforce developers when writing static SOQL (Salesforce Object Query Language) queries within Apex classes. This plugin offers intelligent field suggestions, dynamic object recognition, and cache management features, making SOQL query writing faster and more accurate. <br/> 
+  **[View more](https://github.com/dyncan/salesforce-vscode-soql-booster){:target="_blank"}**
 
 ### [Integration-Patterns-and-Practices-ZH_CN](https://github.com/dyncan/Integration-Patterns-and-Practices-ZH_CN){:target="_blank"}
 
