@@ -26,11 +26,11 @@ JavaScript 诞生于 1995 年，由 [Brendan Eich](https://en.wikipedia.org/wiki
 
 ### ECMAScript: JavaScript 的核心
 
-JavaScript 的核心语言部分，包括其语法、基础类型和函数，被称为 ECMAScript(简称 ES)。ECMAScript 是由 [ECMA International](https://en.wikipedia.org/wiki/Ecma_International) 标准化组织制定的脚本语言规范。
+JavaScript 的核心语言部分，包括其`语法`、`基础类型`和`函数`，被称为 ECMAScript(简称 ES)。ECMAScript 是由 [ECMA International](https://en.wikipedia.org/wiki/Ecma_International) 标准化组织制定的脚本语言规范。截至到 2024 年 8 月，最新的 ECMAScript 版本是 [ECMAScript 2024 (ES15)](https://tc39.es/ecma262/2024/)，这是 ECMAScript 标准的第 15 版。ECMAScript 标准每年都会更新一次，通常在每年的 6 月发布。
+
+下面是 ES6(ECMAScript 2015) 特性的简单示例
 
 ```javascript
-// ECMAScript 6 特性的简单示例
-
 // 使用箭头函数定义一个函数来计算两个数的和
 const add = (a, b) => a + b;
 
@@ -81,7 +81,7 @@ JavaScript 需要一个宿主环境来运行。最常见的宿主环境是 Web �
 
 1. **浏览器环境**
 
-   JavaScript 最初是为浏览器而设计的，它可以直接在网页中运行，操作 DOM（文档对象模型）、处理事件、发送 HTTP 请求等。因此在浏览器中，JavaScript = ECMAScript + Web APIs(如 DOM, BOM), 
+   JavaScript 最初是为浏览器而设计的，它可以直接在网页中运行，操作 DOM（文档对象模型）、处理事件、发送 HTTP 请求等。因此在浏览器中，JavaScript = ECMAScript + Web APIs(如 DOM, BOM).
    
    ```javascript
     // 浏览器环境中的 JavaScript
@@ -103,9 +103,9 @@ JavaScript 需要一个宿主环境来运行。最常见的宿主环境是 Web �
     });
    ```
 
-#### 运行空间的影响
+#### 运行环境的影响
 
-不同的 JavaScript 运行空间提供的 API 和功能有所不同，因此在编写 JavaScript 代码时，必须考虑代码的运行环境。例如，浏览器中的代码无法直接访问文件系统，而在 Node.js 中则可以。
+不同的 JavaScript 运行环境提供的 API 和功能有所不同，因此在编写 JavaScript 代码时，必须考虑代码的运行环境。例如，浏览器中的代码无法直接访问文件系统，而在 Node.js 中则可以。
 
 ## 2. Node.js: 服务器端的 JavaScript
 
@@ -113,7 +113,9 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时环境。它将 
 
 ### NodeJS 的特点
 
-1. **异步 I/O**: 异步 I/O 是 Node.js 的核心特性之一，允许程序在执行 I/O 操作时不阻塞主线程。例如，读取文件时使用异步操作，而不是等待文件读取完毕。
+1. **异步 I/O**: 
+
+    异步 I/O 是 Node.js 的核心特性之一，允许程序在执行 I/O 操作时不阻塞主线程。例如，读取文件时使用异步操作，而不是等待文件读取完毕。
 
     ```javascript
     const fs = require('fs');
@@ -132,7 +134,9 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时环境。它将 
 
     在这个例子中，`fs.readFile` 是一个异步操作，它不会阻塞主线程。即使文件读取需要一些时间，`console.log('This will run immediately...')` 仍然会立即执行。
 
-2. **事件驱动**: Node.js 使用事件循环来管理并发操作。这意味着 Node.js 能够通过事件驱动模型来处理大量的并发连接，而不需要为每个连接创建一个新的线程。
+2. **事件驱动**: 
+
+    Node.js 使用事件循环来管理并发操作。这意味着 Node.js 能够通过事件驱动模型来处理大量的并发连接，而不需要为每个连接创建一个新的线程。
 
     ```javascript
     const http = require('http');
@@ -158,7 +162,9 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时环境。它将 
 
     在这个例子中，HTTP 服务器通过事件驱动模型来处理客户端请求。`server.on('request', ...)` 用来监听每个传入的请求，而不会阻塞其他请求的处理。
     
-3. **跨平台**: Node.js 可以在多种操作系统上运行，如 Windows、Linux 和 macOS。这里的示例展示了一个跨平台的脚本，能够在不同操作系统上执行并输出当前的操作系统类型。
+3. **跨平台**: 
+
+    Node.js 可以在多种操作系统上运行，如 Windows、Linux 和 macOS。这里的示例展示了一个跨平台的脚本，能够在不同操作系统上执行并输出当前的操作系统类型。
 
     ```javascript
     const os = require('os');
@@ -180,9 +186,7 @@ TypeScript 是 Microsoft 开发的编程语言，它是 JavaScript 的超集，�
 
 ### TypeScript 的特点
 
-1. **静态类型检查**: 
-
-    TypeScript 引入了静态类型系统，允许在编译时捕获类型相关的错误。
+1. **静态类型检查**: TypeScript 引入了静态类型系统，允许在编译时捕获类型相关的错误。
 
     ```typescript
     let name: string = "Peter";
@@ -190,11 +194,10 @@ TypeScript 是 Microsoft 开发的编程语言，它是 JavaScript 的超集，�
     let isStudent: boolean = false;
 
     // 错误示例
-    name = 42; // 错误：不能将类型"number"分配给类型"string"
+    name = 42; // 错误：不能将类型 "number" 分配给类型 "string"
     ```
-2. **接口**: 
 
-    允许你定义复杂的类型结构，提高代码的可读性和可维护性。
+2. **接口**: 允许你定义复杂的类型结构，提高代码的可读性和可维护性。
 
     ```typescript
     interface Person {
@@ -209,9 +212,8 @@ TypeScript 是 Microsoft 开发的编程语言，它是 JavaScript 的超集，�
     let john: Person = { name: "Peter", age: 32 };
     console.log(greet(john)); // 输出：Hello, Peter! You are 32 years old.
     ```
-3. **类**: 
 
-    支持基于类的面向对象编程。   
+3. **类**: 支持基于类的面向对象编程。   
 
     ```typescript
     class Animal {
@@ -232,9 +234,7 @@ TypeScript 是 Microsoft 开发的编程语言，它是 JavaScript 的超集，�
     dog.move(10); // 输出：Pete moved 10m.
     ```
 
-4. **泛型**: 
-
-    泛型允许你编写可重用的、类型安全的代码。
+4. **泛型**: 泛型允许你编写可重用的、类型安全的代码。
 
     ```typescript
     function identity<T>(arg: T): T {
@@ -248,9 +248,7 @@ TypeScript 是 Microsoft 开发的编程语言，它是 JavaScript 的超集，�
     console.log(output2); // 输出：100
     ```
 
-5. **枚举**: 
-
-    枚举允许你定义一组命名常量，使代码更具可读性。
+5. **枚举**: 枚举允许你定义一组命名常量，使代码更具可读性。
 
     ```typescript
     enum Color {
@@ -263,10 +261,7 @@ TypeScript 是 Microsoft 开发的编程语言，它是 JavaScript 的超集，�
     console.log(c); // 输出：1
     ```    
 
-5. **高级类型**: 
-
-    TypeScript 提供了多种高级类型，如联合类型、交叉类型。
-
+5. **高级类型**: TypeScript 提供了多种高级类型，如联合类型、交叉类型。
 
     ```typescript
     // 联合类型
