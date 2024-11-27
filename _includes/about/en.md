@@ -13,14 +13,14 @@ If you're looking for a highly motivated professional with strong communication 
  `Salesforce`, `Chrome extension`, `Developer Tool`
 
  - Salesforce Spotlight is a powerful Chrome extension designed to enhance your productivity on the Salesforce Lightning platform. With its advanced search and navigation features, Salesforce Spotlight allows you to quickly locate and access a wide range of Salesforce resources, significantly improving your efficiency. <br/> 
-  **[Watch the Demo](https://www.youtube.com/playlist?list=PLVWORuLxDq7ka2zmvHU3s446_qwN1VOap){:target="_blank"}**
+  **[View more](https://sfspotlight.com){:target="_blank"}**
 
 ### [Salesforce SOQL Booster](https://marketplace.visualstudio.com/items?itemName=dyncan.salesforce-soql-booster){:target="_blank"}
 
  `Salesforce`, `VS Code extension`, `Developer Tool`
 
  - Salesforce SOQL Booster is a Visual Studio Code extension designed to enhance the efficiency of Salesforce developers when writing static SOQL (Salesforce Object Query Language) queries within Apex classes. This plugin offers intelligent field suggestions, dynamic object recognition, and cache management features, making SOQL query writing faster and more accurate. <br/> 
-  **[View more](https://github.com/dyncan/salesforce-vscode-soql-booster){:target="_blank"}**
+  **[View more](https://soqlb.com){:target="_blank"}**
 
 ### [Integration-Patterns-and-Practices-ZH_CN](https://github.com/dyncan/Integration-Patterns-and-Practices-ZH_CN){:target="_blank"}
 
@@ -29,7 +29,7 @@ If you're looking for a highly motivated professional with strong communication 
 - The translation is completed with the purpose of:
   - Using integration more in Salesforce projects.
   - Providing reference for English beginners. <br/>
-**[View website](http://dyncan.com/Integration-Patterns-and-Practices-ZH_CN/){:target="_blank"}**
+**[View more](http://dyncan.com/Integration-Patterns-and-Practices-ZH_CN/){:target="_blank"}**
 
 ### [Dataloader.sh](https://github.com/dyncan/dataloader.sh){:target="_blank"}
 
