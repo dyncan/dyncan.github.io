@@ -322,7 +322,7 @@ TypeScript 是 Microsoft 开发的编程语言，它是 JavaScript 的超集，�
 - **特性**: 
   - Node.js 提供了异步 I/O、事件驱动、模块系统等服务器端开发需要的特性，适用于构建高性能、可扩展的网络应用程序。
 
-### 总结它们的关系
+### 总结三者的关系
 1. **JavaScript** 是一种编程语言，TypeScript 和 Node.js 都依赖于 JavaScript。
 2. **TypeScript** 是 JavaScript 的一个超集，增加了静态类型检查和其他编程特性，但最终编译为 JavaScript 代码在不同环境中运行。
 3. **Node.js** 是一个 JavaScript 运行时环境，使得 JavaScript 和 TypeScript 可以在服务器端运行，超出了传统的浏览器范围。
