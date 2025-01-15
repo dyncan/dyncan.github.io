@@ -13,11 +13,11 @@ future: true
 
 # SNS settings
 RSS: true
-# weibo_username: 
-# zhihu_username: 
+# weibo_username:
+# zhihu_username:
 github_username: dyncan
 twitter_username: arbrv
-linkedin_username:  dyncan
+linkedin_username: dyncan
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
@@ -58,10 +58,10 @@ kramdown:
       start_line: 1
 
 # Disqus settings
-disqus_username: peter
+disqus_username:
 
 # Netease settings
-netease_comment: false 
+netease_comment: false
 
 # Analytics settings
 # Baidu Analytics
@@ -85,4 +85,3 @@ service-worker: true
 
 # MathJax rendering for layout:page (e.g. post preview)
 page-mathjax: false
-

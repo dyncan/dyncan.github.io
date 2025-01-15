@@ -31,8 +31,8 @@ layout: default
 
                 <div style="display: flex; justify-content: center; align-items: center;">
                     <a href=" https://dyncan.com/sponsor" target="_blank"><img height="36"
-                            style="border:0px; height:36px; cursor:pointer"
-                            src="/img/kofi3.png" border="0" alt="Buy Me a Coffee" />
+                            style="border:0px; height:36px; cursor:pointer" src="/img/kofi3.png" border="0"
+                            alt="Buy Me a Coffee" />
                     </a>
                 </div>
 
@@ -57,14 +57,6 @@ layout: default
                     {% endif %}
                 </ul>
                 <hr style="visibility: hidden;">
-
-                {% if site.disqus_username %}
-                <!-- disqus 评论框 start -->
-                <div class="comment">
-                    <div id="disqus_thread" class="disqus-thread"></div>
-                </div>
-                <!-- disqus 评论框 end -->
-                {% endif %}
 
                 {% if site.netease_comment %}
                 <!-- 网易云跟帖 评论框 start -->
@@ -125,24 +117,6 @@ layout: default
     Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
 </script>
 <!-- 网易云跟帖 JS 代码 end -->
-{% endif %}
-
-
-{% if site.disqus_username %}
-<!-- disqus 公共 JS 代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "{{site.disqus_username}}";
-    var disqus_identifier = "{{page.id}}";
-    var disqus_url = "{{site.url}}{{page.url}}";
-
-    (function () {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus 公共 JS 代码 end -->
 {% endif %}
 
 
