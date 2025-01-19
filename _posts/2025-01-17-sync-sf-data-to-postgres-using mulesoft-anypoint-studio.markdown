@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "使用 MuleSoft Anypoint Studio 同步 Salesforce 数据至 Postgres"
+title: "使用 MuleSoft 实现 Salesforce Change Data Capture (CDC) 数据同步"
 subtitle: ""
 date: 2025-01-17 12:00:00
 author: "Peter Dong"
