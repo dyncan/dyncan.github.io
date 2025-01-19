@@ -13,33 +13,41 @@ tags:
   - Salesforce
 ---
 
-在本教程中，我们将学习如何从在 Salesforce 中订阅 Change Data Capture(CDC) 事件然后利用 MuleSoft 平台将数据同步至外部数据库 (本示例为 Postgres). 本教程主要包括：
+本教程将指导您如何利用 MuleSoft 平台订阅 Salesforce 的 Change Data Capture (CDC) 事件，并将数据实时同步到外部 PostgreSQL 数据库。通过这个实践示例，您将学习到完整的数据集成流程。
 
-  - 在 Salesforce 的联系人对象上发布一个 change data capture 事件
-  - 使用 Salesforce Connector 设置 Replay Channel Listener 来订阅联系人变更事件
-  - 在 Anypoint Studio 中查看 change data capture 事件的结构
-  - 在 Postgres 数据库中查看同步的数据
+## 概览
+
+我们将完成以下核心任务：
+1. 在 Salesforce 中配置联系人对象的 CDC 事件发布
+2. 使用 MuleSoft Salesforce Connector 配置 Replay Channel Listener 以订阅这些变更事件
+3. 在 Anypoint Studio 中处理 CDC 事件数据
+4. 将数据同步写入 PostgreSQL 数据库
 
 ![img](/img/in-post/post-bg-mule-salesforce.png)
 
-在开始前需要准备的环境：
+## 环境准备
 
-  - **Anypoint Studio**: 为 MuleSoft 开发者提供的开发环境，[点击安装](https://docs.mulesoft.com/studio/latest/to-download-and-install-studio)
-  - **Salesforce Developer Edition Org**: 一个免费的 Salesforce 开发者环境。注册请[点击](https://developer.salesforce.com/signup)
-  - **Salesforce Security Token**: 一个区分大小写的字母数字密钥，与密码结合使用，以通过 API 访问 Salesforce 资源
-  - **Postgres**: 一个关系型数据库，因为需要连接数据库，所以需要提供一个可访问的 PostgreSQL 数据库。
+在开始之前，请确保您已准备好以下环境：
 
-### Setup CDC in Salesforce
+- **Anypoint Studio**: MuleSoft 的官方开发环境 [安装链接](https://docs.mulesoft.com/studio/latest/to-download-and-install-studio)
+- **Salesforce Developer Edition**: 免费的 Salesforce 开发环境 [注册链接](https://developer.salesforce.com/signup)
+- **PostgreSQL 数据库**: 一个可访问的 PostgreSQL 实例
 
-1. 使用您在注册时设置的用户名和密码登陆到您的 Salesforce 开发者版本 Org.
+## 详细步骤
 
-2. 打开 `SetUp` -> `Home`, 在搜索框中输入 **Change Data Capture**, 点击进入详情页，这个页面显示了可以在 Salesforce 中发布 CDC 事件通知的可用对象，在本教程中，我们将发布联系人对象的 CDC 事件。找到联系人对象，选择它。
+### Salesforce CDC 配置
+
+1. 使用开发者账号登录您的 Salesforce 开发者组织。
+2. 导航至设置页面：
+   - 进入 `Setup` -> `Home`
+   - 在搜索框中输入 _Change Data Capture_
+   - 进入详情页面选择`联系人`对象，此处可以看到所有可发布 CDC 事件的对象列表
 
 ![img](/img/in-post/post-bg-cdc-contact.png)
 
-点击保存，你现在已经指定，当一个联系人记录的数据发生变化时，一个事件将被发布到一个共享的事件 event bus.现在我们将设置一个 Mule project 来订阅这些事件。
+选择并保存后，您就完成了联系人对象 CDC 事件的配置。当联系人记录发生变更时，系统将自动向事件总线发布相应的事件。
 
-### Create Mule project
+### MuleSoft 项目配置
 
 启动 `Anypoint Studio`, 点击 `file`, 然后选择 `New` > `Mule Project`. 项目名字可以叫 `salesforce-cdc` 然后点击 `Finish`.
 
@@ -200,6 +208,11 @@ Value: payload.data.payload.ChangeEventHeader.changeType
 
 ![img](/img/in-post/post-bg-salesforce-mule-25.png)
 
+## 总结
 
+通过本教程，您已经成功实现了以下功能：
+- Salesforce 联系人数据变更的实时捕获
+- 使用 MuleSoft 进行数据处理和转换
+- 将数据实时同步到 PostgreSQL 数据库
 
-
+这个集成方案为实现系统间的实时数据同步提供了可靠的基础。您可以基于此框架扩展更多的集成场景，如添加其他对象的 CDC 监听、增加更复杂的数据转换逻辑等。
