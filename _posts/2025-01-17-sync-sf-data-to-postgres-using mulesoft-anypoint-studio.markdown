@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "使用 MuleSoft 实现 Salesforce Change Data Capture (CDC) 数据同步"
+title: "基于 Salesforce CDC 使用 MuleSoft 实现实时数据集成"
 subtitle: ""
 date: 2025-01-17 12:00:00
 author: "Peter Dong"
@@ -53,11 +53,11 @@ tags:
 
 ![img](/img/in-post/post-mule-new-project.png)
    
-创建一个 global.xml 文件来存储你的 connector 配置。右键点击 src/main/resources 文件夹。选择 `New` > `File`.
+创建一个 `global.xml` 文件来存储你的 connector 配置。右键点击 src/main/resources 文件夹。选择 `New` > `File`.
 
 ![img](/img/in-post/post-bg-cdc-create-global-yaml.png)
 
-文件名为 `global.xml` 然后 点击 `Finish`.
+文件名为 `global.yaml` 然后 点击 `Finish`.
 
 ![img](/img/in-post/post-bg-cdc-global-yaml.png)
 
